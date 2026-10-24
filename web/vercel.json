@@ -1,0 +1,3 @@
+{
+  "rewrites": [{ "source": "/lab/:path*", "destination": "/index.html" }]
+}

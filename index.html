@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#087f72"><title>见序 · 数据结构实验室</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<aside class="sidebar">
+  <a class="brand" href="./" aria-label="见序首页"><span class="brand-mark"><i></i><i></i><i></i></span><span>见序<small>数据结构实验室</small></span></a>
+  <div class="nav-caption">你的算法学习工作台</div>
+  <label class="search"><span aria-hidden="true">⌕</span><input id="search" placeholder="查找算法…" aria-label="查找算法"><kbd>/</kbd></label>
+  <nav id="chapters" aria-label="教材章节"></nav>
+  <div class="sidebar-foot"><span class="status-dot"></span> 本地运行，无需登录<small>从一个步骤，看懂整个过程。</small></div>
+</aside>
+<main>
+  <header class="topbar"><span>学习空间 <span class="slash">/</span> <span id="breadcrumb"></span></span><button id="help" class="quiet">使用指南 <span aria-hidden="true">↗</span></button></header>
+  <section class="page-intro"><div><div class="chapter-label" id="chapter-label"></div><h1 id="title"></h1><p id="summary"></p></div><div class="lesson-mark" aria-hidden="true">a<span>[</span>i<span>]</span></div></section>
+  <div class="workspace">
+    <section class="visual-panel panel" aria-label="算法可视化">
+      <div class="panel-heading"><h2><span class="status-dot"></span> 算法演示</h2><span id="kind-badge" class="badge"></span></div>
+      <form id="data-form">
+        <div class="input-heading"><label for="values"><span id="data-label">输入数据</span> <small id="input-note">逗号或空格分隔，最多 16 个整数</small></label><button id="random" type="button" class="text-button">↻ 随机一组</button></div>
+        <div class="data-row"><input id="values" autocomplete="off" spellcheck="false"><button class="button apply" type="submit">应用数据</button></div>
+        <div class="options">
+          <label id="operation-wrap">操作 <select id="operation"><option value="insert">插入</option><option value="remove">删除</option></select></label>
+          <label id="position-wrap">下标 <input id="position" type="number" min="0" max="16" value="2"></label>
+          <label id="value-wrap">数值 <input id="value" type="number" min="-99" max="99" value="36"></label>
+          <label id="target-wrap">目标值 <input id="target" type="number" min="-99" max="99" value="42"></label>
+          <label id="order-wrap">遍历顺序 <select id="order"><option value="in">中序 · 左根右</option><option value="pre">前序 · 根左右</option><option value="post">后序 · 左右根</option></select></label>
+          <label id="graph-order-wrap">遍历方式 <select id="graph-order"><option value="bfs">广度优先 BFS</option><option value="dfs">深度优先 DFS</option></select></label>
+          <label id="start-wrap">起点下标 <input id="start" type="number" min="0" max="9" value="0"></label>
+          <label id="pattern-wrap">模式串 <input id="pattern" type="text" maxlength="8" autocomplete="off" spellcheck="false" value="ABAC" aria-label="模式串"></label>
+        </div>
+        <label id="edges-wrap" class="edges-label">连接关系 <input id="edges" autocomplete="off" spellcheck="false" placeholder="例如：0-1, 0-2, 1-3"></label>
+        <p id="error" class="error" role="alert"></p>
+      </form>
+      <div class="canvas-wrap"><div class="legend"><span><i class="normal"></i>待处理</span><span><i class="active"></i>当前操作</span><span><i class="done"></i>已完成</span></div><div id="canvas" aria-label="数据结构状态"></div><div id="output" class="traversal-output"></div><div class="canvas-meta"><span id="canvas-label"></span><span id="metrics"></span></div></div>
+      <div class="playback"><div class="timeline"><input id="timeline" type="range" min="0" max="1" value="0" aria-label="算法步骤"><span id="step-count"></span></div><div class="control-row"><div class="controls"><button id="reset" title="回到开始" aria-label="回到开始">↺</button><button id="prev" title="上一步（左方向键）" aria-label="上一步">❮</button><button id="play" class="play">▶ <span>播放</span></button><button id="next" title="下一步（右方向键）" aria-label="下一步">❯</button></div><label class="speed">播放速度 <select id="speed"><option value="1600">0.5×</option><option value="800" selected>1×</option><option value="400">2×</option><option value="200">4×</option></select></label></div></div>
+      <div class="step-explanation"><span class="step-icon" aria-hidden="true">↳</span><div><h3 id="step-title">准备开始</h3><p id="explanation" aria-live="polite"></p></div></div>
+    </section>
+    <section class="code-panel panel" aria-label="代码与变量"><div class="panel-heading"><h2>代码对照</h2><span class="code-label">同步执行步骤</span></div><div class="language-tabs" role="tablist" aria-label="代码语言"><button role="tab" data-lang="C" aria-selected="false">C</button><button role="tab" data-lang="C++" aria-selected="true">C++</button><button role="tab" data-lang="Python" aria-selected="false">Python</button></div><div class="code-file"><span id="filename"></span><button id="copy" class="text-button">复制代码</button></div><div id="code" class="code" role="tabpanel" aria-label="核心算法代码"></div><p class="code-note">核心教学片段 · 输入已校验<br>省略头文件、入口与节点定义，不是在线编译器。</p><div class="variables"><h3>变量观察 <span>随步骤更新</span></h3><dl id="variables"></dl></div></section>
+  </div>
+  <section class="notes-grid"><article class="understanding"><span class="note-symbol" aria-hidden="true">◎</span><div><h2>理解这个算法</h2><p id="principle"></p></div></article><article class="complexity"><h2>复杂度速览</h2><dl><div><dt>时间</dt><dd id="time"></dd></div><div><dt>额外空间</dt><dd id="space"></dd></div></dl></article></section>
+  <div class="learning-tip"><span>学习提示</span><p id="tip"></p></div>
+  <footer>见序 · 让抽象的算法，变成看得见的过程。<span>10 个交互主题</span></footer>
+</main>
+<dialog id="info-dialog"><button id="close-dialog" class="dialog-close" aria-label="关闭">×</button><h2 id="dialog-title"></h2><div id="dialog-body"></div><button id="dialog-ok" class="button">知道了</button></dialog>
+<script type="module" src="app.mjs"></script>
+</body></html>

@@ -1,0 +1,11 @@
+web/node_modules/
+web/dist/
+web/.npm-cache/
+web/*.tsbuildinfo
+node_modules/
+.env
+.env.*
+task_plan.md
+findings.md
+progress.md
+PLAN.md
