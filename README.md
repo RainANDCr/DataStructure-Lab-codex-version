@@ -1,10 +1,42 @@
-# DataStruct Lab · 数据结构可视化学习平台
+# DataStruct Lab · 数据结构与算法可视化学习平台
 
-DataStruct Lab 是中文数据结构学习网站。主界面位于 [`web/`](web/README.md)，采用 React、TypeScript 和 Vite；按教材九章提供 44 个算法与结构实验主题，以及知识点讲解、代码行对应、互动题、错题本和复习计划。根目录保留早期原生 JavaScript 教学版，两套入口彼此独立。线上地址：[GitHub Pages](https://rainandcr.github.io/DataStructure-Lab-codex-version/)。
+**[打开在线网站](https://rainandcr.github.io/DataStructure-Lab-codex-version/)** · [查看 GitHub 仓库](https://github.com/RainANDCr/DataStructure-Lab-codex-version)
 
-## 本地运行
+无需注册或安装，打开网站即可学习。这里把九章知识讲解、算法逐步动画、代码对照、练习与复习记录放在一起。
 
-需要 Node.js 22 或更高版本。在 `web/` 中执行：
+## 五分钟上手
+
+1. 从左侧进入 **课程知识体系 · 408**，选择“大学课程”或“考研 408”，按章节阅读定义、性质、例题和常见错误。
+2. 点击知识点中的**对应动画**。建议先预测下一步会发生什么，再点击“下一步”核对。
+3. 在动画旁切换 **C、C++、Python** 代码，观察当前高亮行、变量和图形如何对应。
+4. 点击**练习这个知识点**，或进入 **算法推演题库** 答题。提交后查看解析。
+5. 到 **学习记录与复习** 查看错题和复习安排。学完一个算法，还可以点击“标记为已学习”。
+
+想直接试一试？打开[冒泡排序实验台](https://rainandcr.github.io/DataStructure-Lab-codex-version/#/lab/bubble)，输入 `5, 2, 8, 1`，点击“应用数据”，再逐步播放。
+
+## 使用算法实验台
+
+- **找算法：**左侧按九章分类，搜索框可按算法或章节查找。还有算法对比、指针与内存模拟、递归调用栈和代码调试等专题。
+- **更换输入：**按当前页面的格式提示填写数据，点击“应用数据”。不同算法的输入范围和上限可能不同。
+- **控制步骤：**“播放”自动前进，再次点击可暂停；“上一步”“下一步”用于单步观察；拖动滑块可跳转，“重置”返回起点，速度菜单可调整节奏。
+- **对照代码：**切换 C、C++ 或 Python 标签，观察高亮行与当前操作。代码是教学参考片段；网站不会编译或运行任意用户代码。内存地址也是教学模拟。
+- **保存案例：**支持“我的案例”的实验台可保存当前输入，并通过 JSON 导入或导出案例。案例文件不同于完整学习记录备份。
+
+## 做题与复习
+
+在[算法推演题库](https://rainandcr.github.io/DataStructure-Lab-codex-version/#/lab/practice)中，“学习练习”逐题提交并查看解析；“模拟测验”可设置题量和时间，交卷后统一看结果。可按章节、知识点、算法、难度和题型筛选。题目是站内原创示例，**不是官方真题**；408 标签也未经最新官方考纲核验。
+
+[学习记录与复习](https://rainandcr.github.io/DataStructure-Lab-codex-version/#/lab/study)提供学习总览、错题本和复习计划。错题可重新作答、记录错误原因或加入复习。复习时可以评价掌握程度并调整下次日期。“已学习”是主动标记，与做题后的掌握状态不同。
+
+## 备份与换设备
+
+网站没有账号或云同步。进度、作答和设置仅保存在**当前浏览器的当前网站地址**；清除网站数据、使用无痕模式或更换设备都可能使记录不可见。建议定期进入“学习记录与复习”，点击 **导出备份** 下载 JSON 文件。
+
+从本地开发地址迁移到线上站点时，先在原地址导出，再在新地址点击 **合并导入**。数据不会自动跨地址转移。详细规则见[数据迁移说明](docs/DATA_MIGRATION.md)。
+
+## 本地运行（开发者）
+
+主界面位于 [`web/`](web/README.md)，采用 React、TypeScript 和 Vite。需要 Node.js 22 或更高版本。在 `web/` 中执行：
 
 ```powershell
 cd web
@@ -14,10 +46,4 @@ npm run dev
 
 打开终端显示的地址。网页测试与生产构建分别运行 `npm test`、`npm run build`；回到仓库根目录执行 `npm test` 可检查旧版算法。部署入口和 SPA 深链接配置见 [`web/README.md`](web/README.md)。
 
-## 学习路径
-
-从 `/lab/knowledge` 选择知识点，进入关联动画观察步骤与 C/C++/Python 教学代码，再到 `/lab/practice` 作答，最后在 `/lab/study` 查看错题和复习安排。算法中的“模拟内存”是教学模型，不是实际 C/C++ 编译器或真实内存地址。408 视角是站内整理，未核对最新官方考纲；题目为原创示例，不是官方真题。
-
-学习记录仅保存在当前浏览器同源 `localStorage`，没有账号或跨设备同步。换端口或域名时请先在学习记录页导出，再由用户主动导入。数据格式与回退注意事项见 [`docs/DATA_MIGRATION.md`](docs/DATA_MIGRATION.md)。
-
-使用说明见 [`docs/USER_GUIDE.md`](docs/USER_GUIDE.md)；架构、算法和出题约定分别见 [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)、[`docs/ALGORITHM_GUIDE.md`](docs/ALGORITHM_GUIDE.md)、[`docs/QUESTION_BANK_GUIDE.md`](docs/QUESTION_BANK_GUIDE.md)。当前验收结果和未完成项见 [`docs/TEST_REPORT.md`](docs/TEST_REPORT.md)、[`docs/RELEASE_CHECKLIST.md`](docs/RELEASE_CHECKLIST.md)。
+根目录保留早期原生 JavaScript 教学版，两套入口彼此独立。使用细节见[详细使用指南](docs/USER_GUIDE.md)；开发资料见[项目架构](docs/ARCHITECTURE.md)、[算法约定](docs/ALGORITHM_GUIDE.md)和[题库约定](docs/QUESTION_BANK_GUIDE.md)。
